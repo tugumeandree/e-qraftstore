@@ -1,0 +1,63 @@
+.auth-container {
+	margin: 150px auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+	padding: 20px;
+	border-top: 4px solid #f48b16;
+	background: #fff;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+	font-weight: 200;
+	color: #f48b16;
+}
+
+.login-form {
+	display: flex;
+	// align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	line-height: 0px;
+
+	h4 {
+		font-weight: 200;
+		color: rgba(0, 0, 0, 0.5);
+	}
+
+	input {
+		width: 500px;
+		height: 30px;
+		outline: none;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		margin-bottom: 1rem;
+		padding-left: 10px;
+	}
+
+	button {
+		width: 20%;
+		height: 40px;
+		border: none;
+		outline: none;
+		background: #f48b16;
+		color: #fff;
+	}
+
+	a {
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		color: #f48b16;
+		text-decoration: none;
+	}
+}
+
+.login-form button:hover {
+	background: #e97f05;
+}
+
+.login-form a:hover {
+	text-decoration: underline;
+}
