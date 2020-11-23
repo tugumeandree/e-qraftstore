@@ -52,6 +52,23 @@
 	cursor: pointer;
 }
 
+.cart-notify {
+	position: absolute;
+	transform: translatey(-80%);
+	background: #f42497;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+
+	p {
+		color: #fff;
+		font-size: 10px;
+	}
+}
+
 .search {
 	display: flex;
 	align-items: center;

@@ -21,4 +21,13 @@ export const ADD_PRODUCT_FAIL = 'ADD_PRODUCT_FAIL';
 
 //Add to Cart
 export const ADD_TO_CART_SUCCESS = 'ADD_TO_CART_SUCCESS';
-export const ADD_TO_CART_FAIL = 'ADD_TO_CART_FAIL';
+
+//Remove from cart
+export const REMOVE_FROM_CART_SUCCESS = 'REMOVE_FROM_CART_SUCCESS';
+
+//Order Item
+export const ORDER_ITEM_SUCCESS = 'ORDER_ITEM_SUCCESS';
+export const ORDER_ITEM_FAIL = 'ORDER_ITEM_FAIL';
+
+//Clear Cart
+export const CLEAR_CART = 'CLEAR_CART' 

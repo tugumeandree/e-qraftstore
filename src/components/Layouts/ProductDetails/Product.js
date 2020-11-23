@@ -46,6 +46,7 @@ const Product = (props) => {
                         precision={0.5}
                         emptyIcon={<StarBorderIcon fontSize="inherit" />}
                         onChange={(event, newValue) => {
+                            console.log('Event, value --', event, value)
                             setValue(newValue);
                           }}
                     />

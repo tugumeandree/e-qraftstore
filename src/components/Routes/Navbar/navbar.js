@@ -10,7 +10,8 @@ import './nav.scss'
 const Navbar = (props) => {
 
     const auth = useSelector(state => state.auth.userId);
-    // console.log('authenticated',auth)
+    const cart_items = useSelector(state => state.add.cart_items);
+    // console.log('cart',cart_items)
 
     return (
         <div className="nav-container">
@@ -21,7 +22,7 @@ const Navbar = (props) => {
                 </div>
                 <div>
                 <Link className="link" to="/clothing">Apparel</Link>
-                <Link className="link" to="/artwork">Painting & Drawings</Link>
+                <Link className="link" to="/artwork">Paintings & Drawings</Link>
                 <Link className="link" to="/ceramic-art">Ceramic Art</Link>
                 </div>
                 {/* <div className="search">
@@ -29,8 +30,11 @@ const Navbar = (props) => {
                         <button type="submit">Search</button>
                 </div> */}
                 <div className="icons">
-                    <PersonOutlineIcon onClick={()=> props.history.push('./account')} style={{color:'#f48b16'}}/>
-                    <ShoppingCartIcon style={{color:'#f48b16'}}/>
+                    {/* <PersonOutlineIcon onClick={()=> props.history.push('./account')} style={{color:'#f48b16'}}/> */}
+                    {cart_items.length > 0 ? <div className="cart-notify">
+                        <p>{cart_items.length}</p>
+                    </div> : null}
+                    <ShoppingCartIcon onClick={()=> props.history.push('./cart')} style={{color:'#f48b16'}}/>
                 </div>
             </div>
         </div>

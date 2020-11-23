@@ -59,7 +59,7 @@ export const getClothing = () => {
                 snapshot.forEach((doc) => {
                     const data = doc.data();
                     products.push({ id: doc.id, ...data });
-                    console.log('Snapshot', doc.data());
+                    // console.log('Snapshot', doc.data());
                 });
                 // console.log('myProducts', products);
                 dispatch(getProductsSuccess(products));
@@ -81,7 +81,7 @@ export const getArtWork = () => {
                 snapshot.forEach((doc) => {
                     const data = doc.data();
                     products.push({ id: doc.id, ...data });
-                    console.log('Snapshot', doc.data());
+                    // console.log('Snapshot', doc.data());
                 });
                 // console.log('myProducts', products);
                 dispatch(getProductsSuccess(products));
@@ -103,7 +103,7 @@ export const getCeramicArt = () => {
                 snapshot.forEach((doc) => {
                     const data = doc.data();
                     products.push({ id: doc.id, ...data });
-                    console.log('Snapshot', doc.data());
+                    // console.log('Snapshot', doc.data());
                 });
                 // console.log('myProducts', products);
                 dispatch(getProductsSuccess(products));

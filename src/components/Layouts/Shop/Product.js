@@ -17,8 +17,6 @@ const Product = (props) => {
     const rating = parseInt(props.product.rating)
 
 
-    // console.log('nemisis',product)
-
     const product = props.product
     const toggle = props.toggle
         
@@ -30,7 +28,7 @@ const Product = (props) => {
                     <h4>{product.product}</h4>
                     <p>{product.description}</p>
                     <h4>Shs {product.price}</h4>
-                    {/* <p>Total {cart_items.reduce((accc, cv) => accc + parseInt(cv.price), 0)}</p> */}
+                
                 </div>
                 </div>
             

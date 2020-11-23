@@ -1,0 +1,151 @@
+.cart-main {
+	margin: 5rem 10rem;
+}
+
+.cart-container {
+	margin: 3rem auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	button {
+		border: 1px solid #f48b16;
+		outline: none;
+		background: none;
+		color: #f48b16;
+		height: 30px;
+		width: 100%;
+		transition: 1s ease-in-out;
+	}
+}
+
+.cart-container button:hover {
+	cursor: pointer;
+	color: #fff;
+	background: #f48b16;
+}
+
+._cart {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 60%;
+	padding: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+	margin-right: 3rem;
+	margin-bottom: 1rem;
+	box-sizing: border-box;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+	button {
+		border: 1px solid #f48b16;
+		outline: none;
+		background: none;
+		color: #f48b16;
+		height: 30px;
+		transition: 1s ease-in-out;
+	}
+}
+
+._cart button:hover {
+	cursor: pointer;
+	color: #fff;
+	background: #f48b16;
+}
+
+._cart img {
+	width: 150px;
+	height: 150px;
+	border-radius: 5px;
+}
+
+// OrdeItem Scss
+
+.order-main {
+	margin: auto;
+	position: absolute;
+	z-index: 1;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.89);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 1s ease-in-out;
+}
+
+.order-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 40%;
+	transition: all 1s ease-in;
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+
+	input {
+		width: 60%;
+		height: 30px;
+		margin-bottom: 1rem;
+		transition: 0.5s ease-in-out;
+		padding-left: 5px;
+		outline: none;
+		border: none;
+		background: rgba(0, 0, 0, 0.075);
+	}
+
+	button {
+		width: 30%;
+		height: 30px;
+		border: none;
+		outline: none;
+		background: #f48b16;
+		color: #fff;
+		margin-bottom: 1rem;
+		transition: 1s ease-in-out;
+	}
+}
+
+.order-inner input:focus {
+	background: none;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.466);
+}
+
+.order-inner button:hover {
+	cursor: pointer;
+	background: #c76d05;
+}
+
+.close-icon {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.icon:hover {
+	cursor: pointer;
+}
+
+// .orderMainOpen {
+// 	opacity: 1;
+// }
+
+// .orderMainClosed {
+// 	opacity: 0;
+// }
+
+.orderInnerOpen {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.orderInnerClosed {
+	opacity: 0;
+	transform: translateY(-100);
+}
