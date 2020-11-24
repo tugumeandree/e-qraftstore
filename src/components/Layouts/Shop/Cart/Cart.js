@@ -17,12 +17,12 @@ const Cart = (props) => {
         phoneNumber:'',
     })  
 
-    useEffect(()=>{
-        console.log(cart_items)
-    },[])
+    // useEffect(()=>{
+    //     console.log(cart_items)
+    // },[])
 
     const cart_items = useSelector(state => state.add.cart_items)
-    console.log(cart_items)
+    // console.log(cart_items)
    
     const openModal = () => {
         setModal(true)
@@ -42,7 +42,7 @@ const Cart = (props) => {
         props.order(cart_items,state.Fname,state.Lname,state.address,state.email,state.phoneNumber,totalPrice)
         setModal(false)
         props.emptyCart()
-        props.history.push('./cart')
+        props.history.push('/order-confrim')
         // emailjs.sendForm('e-qraft_store_service', 'template_solfoya', e.target,'user_D5YwjokeRFEKI8kMRhzja')
 		// 	.then((result) => {
 		// 		console.log(result.text);

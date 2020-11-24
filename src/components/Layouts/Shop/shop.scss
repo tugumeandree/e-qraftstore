@@ -79,3 +79,21 @@
 	cursor: pointer;
 	color: chocolate;
 }
+
+@media screen and (max-width: 768px) {
+	.shop-container {
+		margin: 0rem auto;
+		flex-direction: column;
+	}
+	.product-container {
+		margin: 5rem auto;
+	}
+	.product-card {
+		width: 85%;
+	}
+	.rating {
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+}

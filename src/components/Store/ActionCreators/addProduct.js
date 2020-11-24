@@ -46,8 +46,11 @@ export const emptyCart = () => {
 
 
 export const orderItem = (cart_items,Fname,Lname,address,email,phoneNumber,totalPrice) => {
-	return (dispatch) => {
-		const order_details = {cart_items,Fname,Lname,address,email,phoneNumber,totalPrice}
+	return (dispatch,getState) => {
+		
+		const userId = getState().auth.userId
+
+		const order_details = {cart_items,Fname,Lname,address,email,phoneNumber,totalPrice,userId,date:new Date()}
 		// const _cartItems = {cart_items}
 		db.collection('ordered-items').doc().set(order_details)
 		.then(order => {
@@ -58,5 +61,34 @@ export const orderItem = (cart_items,Fname,Lname,address,email,phoneNumber,total
 		})
 	}
 
+}
+
+//Get OrderedItems ActionCreator
+
+export const getOrderedItemsSuccess = (items) => ({
+	type:actionTypes.GET_ORDEREDITEM_SUCCESS,
+	items
+})
+
+export const getOrderedItems = () => {
+	return (dispatch,getState) => {
+
+		const userId = getState().auth.userId
+		try {
+            db.collection('ordered-items').where('userId', '==', userId ).onSnapshot((snapshot) => {
+                let items = {};
+                snapshot.forEach((doc) => {
+                 items = doc.data();
+                    // items.push({ id: doc.id, ...data });
+                    // console.log('Snapshot', doc.data());
+                });
+                // console.log('myProducts', items);
+                dispatch(getOrderedItemsSuccess(items));
+            });
+        }
+        catch(err){
+            console.log(err)
+        }
+	}
 }
 

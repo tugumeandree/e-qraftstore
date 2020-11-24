@@ -3,26 +3,31 @@ import Login from './Login'
 import Register from './Register'
 import {connect} from 'react-redux'
 import * as actionsCreator from '../../Store/ActionCreators'
+import {useSelector} from 'react-redux'
 
 import './auth.scss'
 const Auth = (props) => {
-    const [state, setState] = useState({email:'', password:''})
+    const [state, setState] = useState({email:'stuartkal@gmail.com', password:''})
     const [registerState, setRegisterState] = useState({email:'', password:''})
 
+    const auth = useSelector(state => state.auth.authentic)
+    const error = useSelector(state => state.auth.err)
 
     const registerHandler = (event) => {
         event.preventDefault()
         props.register(registerState.email, registerState.password)
+        setRegisterState({email:'', password:''})
     }
 
     const loginHandler =  (event) => {
         event.preventDefault()
-        props.login(state.email,state.password)
-        console.log('myToken',props.userId)
-    
-        setTimeout(()=> {
-            props.history.push('./')
-        },2000)
+        props.login(state.email,state.password)   
+            setTimeout(()=> {
+                // console.log(auth)
+                if(auth && auth == true){
+                    props.history.push('./cart')
+                }
+            },2000)
     }  
 
 

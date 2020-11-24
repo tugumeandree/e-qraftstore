@@ -1,14 +1,18 @@
 import React from 'react'
 import CloseIcon from '@material-ui/icons/Close';
+import {useSelector} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 import './cart.scss'
 const OrderItem = (props) => {
+
+    const auth = useSelector(state => state.auth.authentic)
 
     const cssClasses = ['order-inner',props.show ? 'orderInnerOpen' : 'orderInnerClosed']
 
     return (
         <div className="order-main"  >     
-            <form onSubmit={props.order} className={cssClasses.join(' ')}>
+            <form onSubmit={auth === true ? props.order : props.history.push('/account')} className={cssClasses.join(' ')}>
                 <div className="close-icon">
                     <CloseIcon className="icon" onClick={props.close}/>
                 </div>
@@ -25,4 +29,4 @@ const OrderItem = (props) => {
     )
 }
 
-export default OrderItem
+export default withRouter(OrderItem)

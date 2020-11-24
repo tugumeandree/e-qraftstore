@@ -31,3 +31,6 @@ export const ORDER_ITEM_FAIL = 'ORDER_ITEM_FAIL';
 
 //Clear Cart
 export const CLEAR_CART = 'CLEAR_CART' 
+
+//Get OrderedItems
+export const GET_ORDEREDITEM_SUCCESS = 'GET_ORDEREDITEM_SUCCESS';

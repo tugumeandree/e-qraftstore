@@ -1,5 +1,5 @@
 import * as actionTypes from '../Actions/actions'
-import {auth,db} from '../Firebase'
+import { auth, db } from '../Firebase'
 
 
 export const loginAction = () => {
@@ -8,19 +8,20 @@ export const loginAction = () => {
     }
 }
 
-export const loginSuccess = (userId,email,userName,token) => {
+export const loginSuccess = (userId, email, userName, token) => {
     return {
         type: actionTypes.LOGIN_SUCCESS,
         uid: userId,
-		email: email,
-		displayName: userName,
-		ya : token
+        email: email,
+        displayName: userName,
+        ya: token
     }
 }
 
-export const loginFail = () => {
+export const loginFail = (err) => {
     return {
-        type: actionTypes.LOGIN_FAIL
+        type: actionTypes.LOGIN_FAIL,
+        message: err
     }
 }
 
@@ -36,9 +37,10 @@ export const registerSuccess = () => {
     }
 }
 
-export const registerFail = () => {
+export const registerFail = (error) => {
     return {
-        type: actionTypes.REGISTER_FAIL
+        type: actionTypes.REGISTER_FAIL,
+        message:error
     }
 }
 
@@ -46,18 +48,19 @@ export const register = (email, password) => {
     return async dispatch => {
         dispatch(registerAction())
 
-       await auth.createUserWithEmailAndPassword(email,password)
-        .then(res => {
-            const user = {
-                email,
-                userId: res.user.uid,
-                date: new Date()
-            }
-            db.doc(`users/${res.user.uid}`).set(user)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        await auth.createUserWithEmailAndPassword(email, password)
+            .then(res => {
+                const user = {
+                    email,
+                    userId: res.user.uid,
+                    date: new Date()
+                }
+                db.doc(`users/${res.user.uid}`).set(user)
+            })
+            .catch(err => {
+                // console.log('ErroR',err.message)
+                dispatch(registerFail(err.message))
+            })
     }
 }
 
@@ -65,15 +68,16 @@ export const login = (email, password) => {
     return async (dispatch) => {
         dispatch(loginAction())
 
-        await auth.signInWithEmailAndPassword(email,password)
-		.then(res => {
-			// console.log('Authentication',res.user)
-            dispatch(loginSuccess(res.user.uid,res.user.email,res.user.displayName,res.user.ya))
-                                     
-        })
-		.catch(err => {
-			console.log(err)
-        })
+        await auth.signInWithEmailAndPassword(email, password)
+            .then(res => {
+                // console.log('Authentication',res.user)
+                dispatch(loginSuccess(res.user.uid, res.user.email, res.user.displayName, res.user.ya))
+
+            })
+            .catch(err => {
+                // console.log(err.message)
+                dispatch(loginFail(err.message))
+            })
         // let _user = db.collection('users').where('email', '==', email).get()
         //     .then(querySnapshot => {
         //         querySnapshot.forEach(doc => {
@@ -81,12 +85,12 @@ export const login = (email, password) => {
         //             // _userId = doc.data().email
         //             if(_user){
         //                 console.log('user',_user)                
-                        
+
         //             }
-                    
+
         //       })
         //     })
-            
-            
-    }  
+
+
+    }
 }

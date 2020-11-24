@@ -1,8 +1,11 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 
 import './auth.scss'
 const Login = ({email, password, onChange, login}) => {
     
+    const error = useSelector(state => state.auth.err)
+
     return (
         <div>
             <h3 className="title">LOGIN</h3>
@@ -13,6 +16,7 @@ const Login = ({email, password, onChange, login}) => {
                     <h4>Password</h4>
                     <input type="password" value={password} onChange={({target: {value}})=> onChange('password', value)}/>
                     <button type="submit">Login</button>
+                    {error ? <p>{error}</p>:null}
                     <a href="/">Forgot Password?</a>
                 </div>
             </form>

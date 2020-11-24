@@ -3,6 +3,7 @@ import {updateObject} from './utility'
 
 const initialState = {
     cart_items:[],
+    ordered_items:{},
     error:false
 }
 
@@ -21,6 +22,10 @@ const getProducts = (state = initialState, action) => {
             case actionTypes.CLEAR_CART:
             return updateObject(state, {
                 cart_items: []
+            })
+            case actionTypes.GET_ORDEREDITEM_SUCCESS:
+            return updateObject(state, {
+                ordered_items: action.items
             })
         default:
             return state

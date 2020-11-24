@@ -46,3 +46,10 @@
 		left: -400%;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.slider {
+		overflow: hidden;
+		height: 45vh;
+	}
+}

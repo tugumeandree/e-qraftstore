@@ -1,5 +1,5 @@
 .product-details {
-	margin: 150px auto;
+	margin: 100px auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
@@ -11,6 +11,10 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+
+	img {
+		width: 50%;
+	}
 }
 
 .col-2 {

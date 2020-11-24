@@ -3,6 +3,8 @@ import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import {db} from '../../Store/Firebase'
+import {connect} from 'react-redux'
+import * as actionCreator from '../../Store/ActionCreators'
 
 import './product.scss'
 const Product = (props) => {
@@ -46,15 +48,20 @@ const Product = (props) => {
                         precision={0.5}
                         emptyIcon={<StarBorderIcon fontSize="inherit" />}
                         onChange={(event, newValue) => {
-                            console.log('Event, value --', event, value)
+                            // console.log('Event, value --', event, value)
                             setValue(newValue);
                           }}
+                        // onClick={ratingHandler}
                     />
                 </Box>
-                <button type="submit" onClick={ratingHandler}>Add to Cart</button>
+                {/* <button>Add to Cart</button> */}
             </div>
         </div>
     )
 }
 
-export default Product
+const mapDispatchToProps = (dispatch) => ({
+    addToCart: (product) => dispatch(actionCreator.addToCart(product))
+})
+
+export default connect(null,mapDispatchToProps) (Product)

@@ -47,7 +47,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getProducts: () => dispatch(actionCreator.getProducts()),
-        // addToCart: (product) => dispatch(actionCreators.addToCart(product))
     }
 }
 

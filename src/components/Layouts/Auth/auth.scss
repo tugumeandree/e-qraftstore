@@ -61,3 +61,18 @@
 .login-form a:hover {
 	text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) {
+	.auth-container {
+		flex-direction: column;
+	}
+
+	.login-form {
+		input {
+			width: 100%;
+		}
+		button {
+			width: 50%;
+		}
+	}
+}

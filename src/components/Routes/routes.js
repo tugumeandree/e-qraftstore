@@ -8,6 +8,7 @@ import Ceramic from '../Layouts/Shop/Ceramic'
 import Auth from '../Layouts/Auth/Auth'
 import Product from '../Layouts/ProductDetails/Product'
 import Cart from '../Layouts/Shop/Cart/Cart'
+import OrderConfirm from '../Layouts/Shop/Cart/OrderConfirmation'
 
 const routes = () => {
     return (
@@ -21,6 +22,7 @@ const routes = () => {
                 <Route path="/clothing" component={Clothing}/>
                 <Route path="/ceramic-art" component={Ceramic}/>
                 <Route path="/cart" component={Cart}/>
+                <Route path="/order-confrim" component={OrderConfirm}/>
             </Switch>
         </BrowserRouter>
     )
