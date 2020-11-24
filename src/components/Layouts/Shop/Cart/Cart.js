@@ -43,12 +43,12 @@ const Cart = (props) => {
         setModal(false)
         props.emptyCart()
         props.history.push('/order-confrim')
-        // emailjs.sendForm('e-qraft_store_service', 'template_solfoya', e.target,'user_D5YwjokeRFEKI8kMRhzja')
-		// 	.then((result) => {
-		// 		console.log(result.text);
-		// 	}, (error) => {
-		// 		console.log(error.text);
-		// 	});
+        emailjs.sendForm('e-qraft_store_service', 'template_solfoya', e.target,'user_D5YwjokeRFEKI8kMRhzja')
+			.then((result) => {
+				console.log(result.text);
+			}, (error) => {
+				console.log(error.text);
+			});
     }
 
 

@@ -7,7 +7,7 @@ import {useSelector} from 'react-redux'
 
 import './auth.scss'
 const Auth = (props) => {
-    const [state, setState] = useState({email:'stuartkal@gmail.com', password:''})
+    const [state, setState] = useState({email:'', password:''})
     const [registerState, setRegisterState] = useState({email:'', password:''})
 
     const auth = useSelector(state => state.auth.authentic)
